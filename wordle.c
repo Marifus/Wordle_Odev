@@ -79,3 +79,12 @@ int KontrolEt(char cevap[], char kelime[], char durum[], char olmayan_harf[], ch
 
     return 0;
 }
+
+void AyirarakYaz(char str[])
+{
+    int uzunluk = strlen(str);
+    for (int i=0; i<uzunluk; i++)
+    {
+        printf("%c, ", str[i]);
+    }
+}
