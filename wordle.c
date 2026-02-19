@@ -4,9 +4,9 @@
 #include <time.h>
 #include <ctype.h>
 
-void KelimeSec(char* kelime_listesi[], int liste_uzunluk, char kelime[]); //rand() fonksiyonu ile rastgele bir index seçilip strcpy() fonksiyonu ile kelime stringine eşlenecek.
-int KontrolEt(char cevap[], char kelime[], char durum[], char olmayan_harf[], char yanlis_yer[]); //cevap doğruysa tebrikler mesajı ve 1 çıktısı verilecek, yanlışsa olmayan_harf ve yanlis_yer dizileri güncellenip 0 çıktısı verilecek.
-void AyirarakYaz(char str[]); //harfler tek tek araya , koyularak yazılacak.
+void KelimeSec(char* kelime_listesi[], int liste_uzunluk, char kelime[]);
+int KontrolEt(char cevap[], char kelime[], char durum[], char olmayan_harf[], char yanlis_yer[]);
+void AyirarakYaz(char str[]);
 
 int main()
 {
@@ -57,11 +57,14 @@ int KontrolEt(char cevap[], char kelime[], char durum[], char olmayan_harf[], ch
         {
             if (kelime[i] == cevap[i]) durum[i] = cevap[i];
             else {
-                if (strchr(kelime, cevap[i]) != NULL && strchr(yanlis_yer, cevap[i]) == NULL)
+                if (strchr(kelime, cevap[i]) != NULL)
                 {
-                    int n = strlen(yanlis_yer);
-                    yanlis_yer[n] = cevap[i];
-                    yanlis_yer[n+1] = '\0';
+                    if (strchr(yanlis_yer, cevap[i]) == NULL)
+                    {
+                        int n = strlen(yanlis_yer);
+                        yanlis_yer[n] = cevap[i];
+                        yanlis_yer[n+1] = '\0';
+                    }
                 }
                 else if (strchr(olmayan_harf, cevap[i]) == NULL)
                 {
