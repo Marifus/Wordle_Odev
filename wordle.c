@@ -11,13 +11,13 @@ void AyirarakYaz(char str[]);
 int main()
 {
     srand(time(NULL));
-    char* kelime_listesi[] = {"ROKET", "BILGISAYAR", "FARE", "KLAVYE", "EKRAN", };
-    int liste_uzunluk = 5;
+    char* kelime_listesi[] = {"ROKET", "BILGISAYAR", "FARE", "KLAVYE", "EKRAN", "ANTARKTIKA", "KEDI", "BARDAK"};
+    int liste_uzunluk = 8;
     char kelime[30];
     char olmayan_harf[30] = "";
     char yanlis_yer[30] = "";
-    char cevap[30];
-    char durum[30];
+    char cevap[30] = "";
+    char durum[30] = "";
 
     KelimeSec(kelime_listesi, liste_uzunluk, kelime);
     int uzunluk = strlen(kelime);
