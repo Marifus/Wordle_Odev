@@ -9,6 +9,7 @@ void AyirarakYaz(char str[]); //harfler tek tek araya , koyularak yazılacak.
 
 int main()
 {
+    srand(time(NULL));
     char* kelime_listesi[] = {"ROKET", "BILGISAYAR", "FARE", "KLAVYE", "EKRAN", };
     int liste_uzunluk = 5;
     char kelime[30];
@@ -33,4 +34,10 @@ int main()
 
 
     return 0;
+}
+
+void KelimeSec(char* kelime_listesi[], int liste_uzunluk, char kelime[])
+{
+    int rastgele_sayi = rand() % liste_uzunluk;
+    strcpy(kelime, kelime_listesi[rastgele_sayi]);
 }
