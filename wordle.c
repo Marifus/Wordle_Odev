@@ -2,6 +2,7 @@
 #include <string.h>
 #include <stdlib.h>
 #include <time.h>
+#include <ctype.h>
 
 void KelimeSec(char* kelime_listesi[], int liste_uzunluk, char kelime[]); //rand() fonksiyonu ile rastgele bir index seçilip strcpy() fonksiyonu ile kelime stringine eşlenecek.
 int KontrolEt(char cevap[], char kelime[], char durum[], char olmayan_harf[], char yanlis_yer[]); //cevap doğruysa tebrikler mesajı ve 1 çıktısı verilecek, yanlışsa olmayan_harf ve yanlis_yer dizileri güncellenip 0 çıktısı verilecek.
@@ -20,7 +21,7 @@ int main()
 
     KelimeSec(kelime_listesi, liste_uzunluk, kelime);
     int uzunluk = strlen(kelime);
-    printf("\n%d harfli kelime secildi.\n");
+    printf("\n%d harfli kelime secildi.\n", uzunluk);
 
     for (int i=0; i<uzunluk; i++) durum[i] = '_';
     durum[uzunluk] = '\0';
@@ -72,7 +73,7 @@ int KontrolEt(char cevap[], char kelime[], char durum[], char olmayan_harf[], ch
         }
     }
 
-    printf("\n%s- Yeri yanlis harfler: ");
+    printf("\n%s- Yeri yanlis harfler: ", durum);
     AyirarakYaz(yanlis_yer);
     printf("- Olmayan harfler: ");
     AyirarakYaz(olmayan_harf);
